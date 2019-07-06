@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="ManyYears.css">
+	<title>Calcular</title>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">	
+
+		$(document).ready(function(){
+
+			function calcularSeno(){
+				let value_input = document.getElementById("seno").value; 
+				document.getElementById("resultado").value = Math.sin(value_input); 
+			}
+
+			function calcularCosseno(){
+				let value_input2 = document.getElementById("seno").value; 
+				document.getElementById("resultado").value = Math.cos(value_input2);
+			}
+
+			function calcularTangente(){
+				let value_input3 = document.getElementById("seno").value; 
+				document.getElementById("resultado").value = Math.tan(value_input3);
+			}
+			$("#seno").on('keydown', function (e) {
+
+	  			if (e.keyCode === 13 && $("#boxSeno").prop("checked")) {
+	     			 calcularSeno();
+	  				}
+
+	  			if(e.keyCode === 13 && $("#boxCosseno").prop("checked")){
+	  				calcularCosseno();
+	  			}
+
+	  			if(e.keyCode === 13 && $("#boxTangente").prop("checked")){
+	  				calcularTangente();
+	  			}
+
+			});
+			$("#btn").click(function() {
+
+  				if ($("#boxSeno").prop("checked")) {
+    				calcularSeno();
+  				}
+
+				if ($("#boxCosseno").prop("checked")) {
+    				calcularCosseno();
+				}
+
+				if ($("#boxTangente").prop("checked")) {
+    				calcularTangente();
+				}
+
+			});
+		});
+
+	</script>
+</head>
+<body>
+
+	<form action="ManyYears.html" id="hi" method="POST">
+
+		<div id="checagem">
+			<div><input type="radio" name="box" id="boxSeno" class="radio"> Seno</div>
+			<div><input type="radio" name="box" id="boxCosseno" class="radio"> Cosseno</div>
+			<div><input type="radio" name="box" id="boxTangente" class="radio"> Tangente</div>
+		</div>
+
+		<div id="inputs">
+			<input type="text" id="seno" class="form-control" placeholder="0" class="change">
+			<input type="text" name="resultado" class="form-control" id="resultado">
+			<button type="button" class="btn btn-primary btn-block" id="btn">Calcular</button>
+		</div>
+
+	</form>
+
+</body>
+</html>
